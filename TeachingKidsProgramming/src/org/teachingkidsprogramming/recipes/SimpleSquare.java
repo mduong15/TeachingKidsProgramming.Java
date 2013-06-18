@@ -9,12 +9,13 @@ public class SimpleSquare
   {
     Tortoise.show();
     Tortoise.setSpeed(10);
-    for (int i = 1; i <= 4; i++)
+    int sides = 4;
+    for (int i = 1; i <= sides; i++)
     {
       Tortoise.setPenColor(Colors.Blues.Blue);
+      Tortoise.setPenWidth(2);
       Tortoise.move(50);
-      Tortoise.turn(90);
+      Tortoise.turn(360 / sides);
     }
-    //  Repeat --#5.2
   }
 }
