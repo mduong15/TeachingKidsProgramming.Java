@@ -21,8 +21,14 @@ public class Houses
     Tortoise.move(height);
     // flatRoof();
     //amittaisRoof();
-    //MavericksRoof
-    //turn left 90
+    mavericksRoof();
+    Tortoise.move(height);
+    Tortoise.turn(-90);
+    Tortoise.move(20);
+    Tortoise.turn(-90);
+  }
+  private static void mavericksRoof()
+  {
     Tortoise.turn(-90);
     Tortoise.move(10);
     Tortoise.turn(90 + 45);
@@ -31,18 +37,6 @@ public class Houses
     Tortoise.move(50);
     Tortoise.turn(90 + 45);
     Tortoise.move(10);
-    Tortoise.turn(-90);
-    //move 10
-    // turn right 90+45 degrees
-    // move 50
-    // turn 90
-    // move 50
-    // turn 90 + 45
-    // move 10
-    //turn 90 left
-    Tortoise.move(height);
-    Tortoise.turn(-90);
-    Tortoise.move(20);
     Tortoise.turn(-90);
   }
   private static void amittaisRoof()
