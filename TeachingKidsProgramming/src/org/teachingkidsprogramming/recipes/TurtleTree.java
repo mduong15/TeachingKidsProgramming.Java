@@ -3,14 +3,18 @@ package org.teachingkidsprogramming.recipes;
 import org.teachingextensions.logo.Colors;
 import org.teachingextensions.logo.Turtle;
 
+import com.spun.util.NumberUtils;
+
 public class TurtleTree
 {
   public static void main(String[] args)
   {
     Turtle turtle = new Turtle();
+    //lower y coordinate by 100
+    turtle.setY(turtle.getY() + 100);
     turtle.setSpeed(10);
     turtle.getBackgroundWindow().setColor(Colors.Grays.Black);
-    int branch = 60;
+    int branch = 70;
     drawBranch(turtle, branch);
   }
   private static void drawBranch(Turtle turtle, int branch)
@@ -25,42 +29,51 @@ public class TurtleTree
   }
   private static void adjustColor(Turtle turtle, int branch)
   {
-    if (branch == 10)
+    if (branch <= 10)
     {
+      turtle.setPenWidth(1);
       turtle.setPenColor(Colors.Greens.Lime);
     }
-    if (branch == 20)
+    else if (branch <= 20)
     {
+      turtle.setPenWidth(2);
       turtle.setPenColor(Colors.Greens.ForestGreen);
     }
-    if (branch == 30)
+    else if (branch <= 30)
     {
+      turtle.setPenWidth(4);
       turtle.setPenColor(Colors.Greens.DarkGreen);
     }
-    if (branch == 40)
+    else if (branch <= 40)
     {
+      turtle.setPenWidth(6);
       turtle.setPenColor(Colors.Greens.Olive);
     }
-    if (branch == 50)
+    else if (branch <= 50)
     {
+      turtle.setPenWidth(8);
       turtle.setPenColor(Colors.Browns.Sienna);
     }
-    if (branch == 60)
+    else if (branch <= 60)
     {
+      turtle.setPenWidth(10);
       turtle.setPenColor(Colors.Browns.SaddleBrown);
     }
   }
   private static void drawShorterBranch(Turtle turtle, int branch)
   {
-    drawBranch(turtle, branch - 10);
+    int difference = NumberUtils.getRandomInt(5, 10);
+    drawBranch(turtle, branch - difference);
   }
   private static void drawLowerBranches(Turtle turtle, int branch)
   {
-    turtle.turn(30);
+    int rightAngle = NumberUtils.getRandomInt(20, 40);
+    turtle.turn(rightAngle);
     drawShorterBranch(turtle, branch);
-    turtle.turn(-60);
+    int leftAngle = -NumberUtils.getRandomInt(10, 60);
+    turtle.turn(leftAngle - rightAngle);
     drawShorterBranch(turtle, branch);
-    turtle.turn(30);
+    turtle.turn(-leftAngle);
     adjustColor(turtle, branch);
   }
 }
